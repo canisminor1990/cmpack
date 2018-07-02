@@ -17,11 +17,14 @@
   ],
   "scripts": {
     "build": "babel src/**/* -d lib",
-    "lint": "eslint --ext .js src",
-    "precommit": "lint-staged"
+    "lint": "lint-staged",
+    "lint:es": "eslint --fix --ext .js src"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "lint-staged": {
-    "*.js": [
+    "src/*.js": [
       "eslint --fix",
       "git add"
     ]
@@ -47,6 +50,7 @@
     "expect": "^1.20.2",
     "husky": "^0.14.3",
     "lint-staged": "^4.3.0",
-    "prettier": "^1.8.1"
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.13.7"
   }
 }
